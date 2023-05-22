@@ -24,16 +24,11 @@ const db = knex({
   client: "pg",
   version: "7.2",
   connection: {
-    connectionString:
-      process.env.DATABASE_URL ||
-      "postgres://seedb:P6wxUiqyWSksLorae0wr96xNkhf2Jalc@dpg-cgr6cr5269v4ioo4lqu0-a.oregon-postgres.render.com/seedb",
-    host:
-      process.env.DATABASE_HOST ||
-      "dpg-cgr6cr5269v4ioo4lqu0-a.oregon-postgres.render.com",
+    connectionString: process.env.DATABASE_URL,
+    host: process.env.DATABASE_HOST,
     port: 5432,
-    user: process.env.DATABASE_USER || "seedb",
-    password: process.env.DATABASE_PW || "P6wxUiqyWSksLorae0wr96xNkhf2Jalc",
-    database: process.env.DATABASE_DB || "seedb",
+    password: process.env.DATABASE_PW,
+    database: process.env.DATABASE_DB,
   },
 });
 
