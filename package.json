@@ -1,24 +1,25 @@
 {
   "name": "node",
   "version": "1.0.0",
+  "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "build": "build"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "bcrypt-nodejs": "^0.0.3",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "knex": "^2.4.2",
-    "pg": "^8.11.0"
-  },
   "devDependencies": {
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
     "nodemon": "^2.0.22"
   },
-  "description": ""
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "choco": "^0.2.1",
+    "cors": "^2.8.5",
+    "knex": "^2.4.2",
+    "node": "^20.2.0",
+    "pg": "^8.10.0"
+  }
 }

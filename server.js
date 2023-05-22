@@ -22,14 +22,19 @@ app.use((req, res, next) => {
 
 const db = knex({
   client: "pg",
+  version: "7.2",
   connection: {
-    host: "127.0.0.1",
+    connectionString:
+      process.env.DATABASE_URL ||
+      "postgres://seedb:P6wxUiqyWSksLorae0wr96xNkhf2Jalc@dpg-cgr6cr5269v4ioo4lqu0-a.oregon-postgres.render.com/seedb",
+    host:
+      process.env.DATABASE_HOST ||
+      "dpg-cgr6cr5269v4ioo4lqu0-a.oregon-postgres.render.com",
     port: 5432,
-    user: "postgres",
-    password: "123",
-    database: "smart_brain",
+    user: process.env.DATABASE_USER || "seedb",
+    password: process.env.DATABASE_PW || "P6wxUiqyWSksLorae0wr96xNkhf2Jalc",
+    database: process.env.DATABASE_DB || "seedb",
   },
-  searchPath: ["knex", "public"],
 });
 
 // db.select("*").from("users").then(console.log);
