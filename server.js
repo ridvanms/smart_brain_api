@@ -16,20 +16,31 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use((req, res, next) => {
-  console.log("New one");
   next();
 });
 
+// const db = knex({
+//   client: "pg",
+//   version: "7.2",
+//   connection: {
+//     // connectionString: process.env.DATABASE_URL || none,
+//     host: process.env.DATABASE_HOST || "127.0.0.1",
+//     port: 5432,
+//     // user: "postgresql",
+//     password: process.env.DATABASE_PW || "123",
+//     database: process.env.DATABASE_DB || "smart_brain",
+//   },
+// });
 const db = knex({
   client: "pg",
-  version: "7.2",
   connection: {
-    connectionString: process.env.DATABASE_URL,
-    host: process.env.DATABASE_HOST,
+    host: process.env.DATABASE_HOST || "127.0.0.1",
     port: 5432,
-    password: process.env.DATABASE_PW,
-    database: process.env.DATABASE_DB,
+    user: "postgres",
+    password: process.env.DATABASE_PW || "123",
+    database: process.env.DATABASE_DB || "smart_brain",
   },
+  searchPath: ["knex", "public"],
 });
 
 // db.select("*").from("users").then(console.log);
@@ -51,4 +62,6 @@ app.put("/image", (req, res) => {
   image.imageHandler(req, res, db);
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000, () =>
+  console.log("server is running on port 3000")
+);
